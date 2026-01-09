@@ -37,16 +37,16 @@ terraform init
 ### 2. Review the Plan
 
 ```bash
-terraform plan -var="oracle_password=YourSecurePassword1"
+terraform plan -var="oracle_password=YourPassword"
 ```
 
 ### 3. Apply Configuration
 
 ```bash
-terraform apply -var="oracle_password=YourSecurePassword1" -auto-approve
+terraform apply -var="oracle_password=YourPassword" -auto-approve
 ```
 
-Replace `YourSecurePassword1` with a strong password of your choice.
+Replace `YourPassword` with a strong password of your choice.
 
 ### 4. Get Connection Details
 
@@ -81,7 +81,7 @@ The following variables can be customized:
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
 | `image` | string | `container-registry.oracle.com/database/free:23.26.0.0` | Docker image URL for Oracle 26ai Free |
-| `oracle_password` | string | `YourSecurePassword1` | Password for SYS and SYSTEM accounts (required to override) |
+| `oracle_password` | string | `YourPassword` | Password for SYS and SYSTEM accounts (required to override) |
 | `container_name` | string | `oracle-26ai` | Name of the Docker container and volume prefix |
 | `oracle_port` | number | `1521` | External port for database connections (1521 is standard) |
 
@@ -89,13 +89,13 @@ The following variables can be customized:
 
 ### Example 1: Default Configuration
 ```bash
-terraform apply -var="oracle_password=MyPassword123" -auto-approve
+terraform apply -var="oracle_password=YourPassword" -auto-approve
 ```
 
 ### Example 2: Custom Port and Container Name
 ```bash
 terraform apply \
-  -var="oracle_password=MyPassword123" \
+  -var="oracle_password=YourPassword" \
   -var="container_name=my-oracle-db" \
   -var="oracle_port=1522" \
   -auto-approve
@@ -103,7 +103,7 @@ terraform apply \
 
 ### Example 3: Using Terraform Plan
 ```bash
-terraform plan -var="oracle_password=MyPassword123" -out=plan.tfplan
+terraform plan -var="oracle_password=YourPassword" -out=plan.tfplan
 terraform apply "plan.tfplan"
 ```
 
@@ -165,7 +165,7 @@ The Oracle container is configured with:
 To remove the Oracle database container and free up resources:
 
 ```bash
-terraform destroy -var="oracle_password=AdminAdmin1" -auto-approve
+terraform destroy -var="oracle_password=YourPassword" -auto-approve
 ```
 
 This will:
