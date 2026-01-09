@@ -5,6 +5,7 @@ This Terraform configuration automates the deployment of Oracle 26ai Free databa
 ## Overview
 
 This project uses Terraform and Docker to:
+
 - Automatically pull the Oracle 26ai Free Docker image
 - Create and configure an Oracle database container
 - Persist database data on the host machine
@@ -67,6 +68,7 @@ This configuration uses **Docker Managed Volumes** for data persistence:
 - **Permissions**: Automatically managed by Docker (no manual chmod needed)
 
 Docker volumes provide:
+
 ✅ Automatic permission handling for Oracle user  
 ✅ Better portability across systems  
 ✅ Native Docker integration  
@@ -79,7 +81,7 @@ The following variables can be customized:
 | Variable | Type | Default | Description |
 |----------|------|---------|-------------|
 | `image` | string | `container-registry.oracle.com/database/free:23.26.0.0` | Docker image URL for Oracle 26ai Free |
-| `oracle_password` | string | `AdminAdmi1!` | Password for SYS and SYSTEM accounts (required to override) |
+| `oracle_password` | string | `YourSecurePassword1` | Password for SYS and SYSTEM accounts (required to override) |
 | `container_name` | string | `oracle-26ai` | Name of the Docker container and volume prefix |
 | `oracle_port` | number | `1521` | External port for database connections (1521 is standard) |
 
